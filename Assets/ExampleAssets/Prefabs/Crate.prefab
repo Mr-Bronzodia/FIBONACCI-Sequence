@@ -25,7 +25,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f8a2f6fdb51f74f8e70e2795574f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correnctScore: 0
+  correnctScore: 1
+  ScoreText: {fileID: 873106603349704248}
 --- !u!114 &1634575808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,7 +40,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rock: {fileID: 138619176021283554, guid: acfc44e236369a54e9712542ef6661da, type: 3}
-  ScoreText: {fileID: 873106603349704248}
   Button: {fileID: 0}
 --- !u!1 &873106603349704248
 GameObject:

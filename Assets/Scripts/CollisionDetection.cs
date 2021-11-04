@@ -1,26 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour
 {
     public GameObject Rock;
-    public GameObject ScoreText;
     public GameObject Button;
-    public int CurrentScore { get; private set; } = 0;
 
-    
+    public void Start()
+    {
+        Button.GetComponent<CheckButtonLogic>().listOfBoxes.Add(gameObject);
+    }
+
     //This function detects if the rock hit the crate
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "Rock_02" | collision.gameObject.name == "Rock_02(Clone)") //This is hardcoded and has to be changed for final version 
         {
-            CurrentScore++;
-            ScoreText.GetComponent<TextMeshPro>().text = CurrentScore.ToString();
-            Destroy(collision.gameObject);
-            gameObject.GetComponent<BoxScoreLogic>().UpdateScore(CurrentScore);
-            Button.GetComponent<CheckButtonLogic>().lastInteracedBox = gameObject;
+            if (!gameObject.GetComponent<BoxScoreLogic>().isComplete)
+            {
+                Destroy(collision.gameObject);
+                gameObject.GetComponent<BoxScoreLogic>().UpdateScore();
+                Button.GetComponent<CheckButtonLogic>().lastInteracedBox = gameObject;
+            }
         }        
     }
 }
